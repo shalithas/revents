@@ -3,16 +3,11 @@ import { List, Image } from "semantic-ui-react";
 
 class EventAttendee extends Component {
   render() {
-    const {attendee} = this.props;
+    const { attendee } = this.props;
 
     return (
       <List.Item>
-        <Image
-          as='a'
-          size='mini'
-          circular
-          src={attendee.photoURL}
-        />
+        <Image as='a' size='mini' circular src={attendee.photoURL} />
       </List.Item>
     );
   }
