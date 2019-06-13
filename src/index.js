@@ -1,24 +1,30 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './app/layouts/App';
-import * as serviceWorker from './serviceWorker';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./app/layouts/App";
+import { Provider } from "react-redux";
+import * as serviceWorker from "./serviceWorker";
+import { BrowserRouter } from "react-router-dom";
+import { configureStore } from "./app/store/configureStore";
 
-const rootEl = document.getElementById('root');
+const rootEl = document.getElementById("root");
+const store = configureStore();
 
 let render = () => {
-    ReactDOM.render(
-        <BrowserRouter>
-            <App />
-        </BrowserRouter>
-        , rootEl);
-}
+  ReactDOM.render(
+    <Provider store={store}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+    rootEl
+  );
+};
 
-if(module.hot){
-    module.hot.accept('./app/layouts/App', () => {
-        setTimeout(render);
-    });
+if (module.hot) {
+  module.hot.accept("./app/layouts/App", () => {
+    setTimeout(render);
+  });
 }
 
 render();

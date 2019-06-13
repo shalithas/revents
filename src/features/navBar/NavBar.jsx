@@ -27,6 +27,7 @@ class NavBar extends Component {
             Re-vents
           </Menu.Item>
           <Menu.Item name='Events' as={NavLink} to='/events' />
+          <Menu.Item name='Test' as={NavLink} to='/test' />
           <Menu.Item>
             <Button
               floated='right'
